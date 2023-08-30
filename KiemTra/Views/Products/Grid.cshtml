@@ -3,19 +3,19 @@
     ViewData["Title"] = "Trang hiển thị danh sách sản phẩm";
 }
 <h1 class="text-center">Danh sách các sản phẩm</h1>
-<p>Hiện đang có @Model.Count() sản phẩm trong kho</p>
+<div>Hiện đang có @Model.Count() sản phẩm trong kho</div>
 <div>Tổng số lượng tồn kho @ViewBag.sumPrice</div>
 <div>Tổng số lượng hàng tồn kho @ViewBag.sumStock</div>
-
+<div style="margin-top: 30px"></div>
 <div class="container">
     <div class="row">
         @foreach(var item in Model)
         {
-            <div class="col-sm-3">
+            <div class="col-sm-3 mt-5">
                 <div class="card border-0">
                     <img class="card-img-top" src="~/images/@item.Image" alt="@item.Name">
                     <div class="card-body">
-                        <h4 class="card-title">@item.Name</h4>
+                        <h4 class="card-title" style=" height : 57.6px">@item.Name</h4>
                         <h5 class="text-danger">@item.Price USD</h5>
                         <p class="card-text">
                             @item.Description 
