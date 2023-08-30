@@ -1,0 +1,35 @@
+﻿@model List<Product>;
+@{
+    ViewData["Title"] = "Trang hiển thị danh sách sản phẩm";
+}
+<h1 class="text-center">Danh sách các sản phẩm</h1>
+<p>Hiện đang có @Model.Count() sản phẩm trong kho</p>
+<div>Tổng số lượng tồn kho @ViewBag.sumPrice</div>
+<div>Tổng số lượng hàng tồn kho @ViewBag.sumStock</div>
+
+<div class="container">
+    <div class="row">
+        @foreach(var item in Model)
+        {
+            <div class="col-sm-3">
+                <div class="card border-0">
+                    <img class="card-img-top" src="~/images/@item.Image" alt="@item.Name">
+                    <div class="card-body">
+                        <h4 class="card-title">@item.Name</h4>
+                        <h5 class="text-danger">@item.Price USD</h5>
+                        <p class="card-text">
+                            @item.Description 
+                        </p>
+                    </div>
+                    <div class="card-footer bg-white border-0">
+                        <a href="#" class="btn btn-primary stretched-link">
+                            <i class="fas fa-shopping-cart"></i> Mua
+                            ngay
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        }
+    </div>
+</div>

@@ -1,0 +1,47 @@
+﻿@model List<Product>;
+@{
+    ViewData["Title"] = "Trang hiển thị danh sách sản phẩm";
+}
+    <h1 class="text-center">Danh sách các sản phẩm</h1>
+    <p>Hiện đang có @Model.Count() sản phẩm trong kho</p>
+    <div>Tổng số lượng tồn kho @ViewBag.sumPrice</div>
+<div>Tổng số lượng hàng tồn kho @ViewBag.sumStock</div>
+    <table class="table table-light">
+    <thead class="table-dark">
+        <tr >
+                <th>Hình ảnh</th>
+                <th>Tên sản phẩm</th>
+                <th>Thông tin</th>
+                <th>Giá(USD)</th>
+                <th>Tồn kho</th>
+                <th>Chức năng</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                <td>
+                    <img src="~/images/@item.Image" style="    width:100px;
+    height: 100px;" />
+                </td>
+                    <td class="fw-bolder">@item.Name</td>
+                    <td>@item.Description</td>
+                    <td>@item.Price</td>
+                    @if (@item.Stock == 0)
+                    {
+                        <td class="text-danger fw-bolder">Hết hàng</td>
+                    }
+                    else
+                    {
+                        <td>@item.Stock</td>
+                    }
+                    <td>
+                        <button class="btn btn-primary">Sửa</button>
+                        <button class="btn btn-danger">Xoá</button>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+        </table>
